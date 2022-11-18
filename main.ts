@@ -1,11 +1,23 @@
 input.onButtonPressed(Button.A, function () {
-    basic.showNumber(input.lightLevel())
+    led.setBrightness(input.lightLevel())
+    basic.showLeds(`
+        # # # # #
+        # # # # #
+        # # # # #
+        # # # # #
+        # # # # #
+        `)
 })
 input.onButtonPressed(Button.B, function () {
-    if (input.lightLevel() <= 128) {
-        led.setBrightness(input.lightLevel())
-    }
+	
 })
 basic.forever(function () {
-	
+    led.setBrightness(255 - input.lightLevel())
+    basic.showLeds(`
+        # # # # #
+        # # # # #
+        # # # # #
+        # # # # #
+        # # # # #
+        `)
 })
